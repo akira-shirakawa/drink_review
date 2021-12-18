@@ -1,0 +1,144 @@
+:root{
+    --orange:#ff7800;
+    --black:#130f40;
+    --loght-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1)
+   
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration: none;
+    outline: none;
+    border:none;
+}
+input[type=submit]{
+    font-family: FontAwesome
+   }
+.search_box{
+    display:block;
+    position: relative;
+    box-sizing: border-box;
+    width:80%;
+    height:50px;
+    margin:0 auto;
+  }
+  .search_box input[type="text"]{
+    position:absolute;/*フォームの絶対位置*/	
+    left:0;
+    top:0; 	
+    width:270px;
+    outline:0;/*クリック時の青い枠線消す*/	
+    height:50px;/*検索ボックスの高さ*/	
+    padding:0 10px;/*テキスト位置調整*/	 
+    border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/		
+    	
+  }
+  .search_box input[type="text"]:focus {
+    outline: 0;
+  }
+  
+  .search_box button[type="submit"]{
+    width:70px;/*検索ボタンの横幅*/ 
+    height:50px;/*検索ボタンの縦幅*/ 
+    position:absolute;/*検索ボタンの絶対位置*/  
+    left:270px;/*検索ボタンの位置調整*/  
+    top:0;
+    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
+    background:#ff7800;/*検索ボタンの背景カラー*/ 
+    border:none;/*検索ボタンの枠線を消す*/ 
+    color:#fff;/*検索ボタンのテキストカラー*/ 
+    font-weight:bold;/*検索ボタンのテキスト太字*/ 
+    font-size:16px;/*検索ボタンのフォントサイズ*/ 
+    border-radius:0 25px 25px 0;
+  }
+  .search_box i{
+      font-size:3rem;
+      font-weight: bolder;
+
+  }
+  .search_box ::-webkit-input-placeholder {
+    color: #3879D9;
+  }
+  
+
+  .main_block{
+    width:100%;
+    border-radius:30px 30px 10px 30px;
+    box-shadow: var(--box-shadow);
+    
+    background:#ff7800;
+  }
+  .main_block .main_block_header{
+    
+    padding:20px 0;
+    text-align:center;
+    font-size:2rem;
+    font-weight: bolder;
+    color:#fff;
+  }
+  .main_block .main_block_content{
+      height:400px;
+      background:#fff;
+  }
+
+  .input {
+    position: relative;
+    width: 80%;
+    margin:0 auto;
+  }
+  .input input[type=text] {
+    font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 8px 0;
+    padding: 0.3em;
+    transition: 0.3s;
+    border: 1px solid #1b2538;
+    border-radius: 4px;
+    outline: none;
+  }
+  .input input[type=text]:focus {
+    border-color: #da3c41;
+  }
+  .input input[type=text] {
+    padding-left: 40px;
+  }
+  .input i {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    padding: 9px 8px;
+    transition: 0.3s;
+    color: #aaaaaa;
+  }
+  .input input[type=text]:focus + i {
+    color: #da3c41;
+  }
+
+  .box{
+    box-shadow: var(--box-shadow);
+    background:#fff;
+    border-radius:10px;
+  }
+
+  .alert{
+   
+    background:rgb(255, 177, 177);
+    border-radius:10px;
+    text-align:center;
+  }
+  
+
+  .button{
+    background:var(--orange);
+    display:block;
+    width:20%;
+    border-radius:10px;
+    color:#fff;
+    font-weight:bolder;
+    margin:0 auto;
+    height:50px;
+    font-size:2rem;
+  }
