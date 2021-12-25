@@ -9,6 +9,22 @@
 .container .center{
     width:50%;
 }
+@media(min-width:500px) and (max-width:800px){
+    .container .left,.right{
+        width:10%;
+    }
+    .container .center{
+        width:80%;
+    }
+    }
+@media(max-width:500px){
+.container .left,.right{
+    width:100%;
+}
+.container .center{
+    width:100%;
+}
+}
 .mt-1{
     margin-top:10px;
 }

@@ -25,14 +25,14 @@ input[type=submit]{
     margin:0 auto;
   }
   .search_box input[type="text"]{
-    position:absolute;/*フォームの絶対位置*/	
+    position:absolute;
     left:0;
     top:0; 	
     width:270px;
-    outline:0;/*クリック時の青い枠線消す*/	
-    height:50px;/*検索ボックスの高さ*/	
-    padding:0 10px;/*テキスト位置調整*/	 
-    border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/		
+    outline:0;
+    height:50px;
+    padding:0 10px;
+    border-radius:2px 0 0 2px;
     	
   }
   .search_box input[type="text"]:focus {
@@ -40,17 +40,18 @@ input[type=submit]{
   }
   
   .search_box button[type="submit"]{
-    width:70px;/*検索ボタンの横幅*/ 
-    height:50px;/*検索ボタンの縦幅*/ 
-    position:absolute;/*検索ボタンの絶対位置*/  
-    left:270px;/*検索ボタンの位置調整*/  
+    cursor:pointer;
+    width:70px;
+    height:50px;
+    position:absolute;
+    left:270px;
     top:0;
-    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
-    background:#ff7800;/*検索ボタンの背景カラー*/ 
-    border:none;/*検索ボタンの枠線を消す*/ 
-    color:#fff;/*検索ボタンのテキストカラー*/ 
-    font-weight:bold;/*検索ボタンのテキスト太字*/ 
-    font-size:16px;/*検索ボタンのフォントサイズ*/ 
+    border-radius:0 2px 2px 0;
+    background:#ff7800;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    font-size:16px;
     border-radius:0 25px 25px 0;
   }
   .search_box i{
@@ -140,5 +141,9 @@ input[type=submit]{
     font-weight:bolder;
     margin:0 auto;
     height:50px;
+    cursor:pointer;
     font-size:2rem;
+  }
+  .button:hover{
+    background:#ff8911;
   }
