@@ -18,11 +18,11 @@
                     <i class="far fa-envelope"></i>
                 </div>
                 <div class="input mt-3">
-                    <input type="text" placeholder="パスワード" name="password">
+                    <input type="password" placeholder="パスワード" name="password">
                     <i class="fas fa-unlock-alt"></i>
                 </div>
                 <div class="input mt-3 mb-3">
-                    <input type="text" placeholder="パスワード（確認）" name="password_confirmation">
+                    <input type="password" placeholder="パスワード（確認）" name="password_confirmation">
                     <i class="fas fa-unlock-alt"></i>
                 </div>
                 <input type="submit" class="button" value="登録">

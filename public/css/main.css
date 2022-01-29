@@ -67,5 +67,10 @@ body{
 }
 footer{
     background:var(--orange);
-    height:300px;
+    height:150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
 }

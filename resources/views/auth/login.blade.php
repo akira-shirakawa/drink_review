@@ -15,7 +15,7 @@
                     <i class="far fa-envelope"></i>
                 </div>
                 <div class="input mt-3">
-                    <input type="text" placeholder="パスワード" name="password">
+                    <input type="password" placeholder="パスワード" name="password">
                     <i class="fas fa-unlock-alt"></i>
                 </div>
                 

@@ -20,15 +20,22 @@ input[type=submit]{
     display:block;
     position: relative;
     box-sizing: border-box;
-    width:80%;
+    width:60%;
     height:50px;
     margin:0 auto;
   }
+  @media(max-width:600px){
+    .search_box{
+     
+      width:100%;
+      
+    }
+}
   .search_box input[type="text"]{
     position:absolute;
     left:0;
     top:0; 	
-    width:270px;
+    width:80%;
     outline:0;
     height:50px;
     padding:0 10px;
@@ -41,10 +48,10 @@ input[type=submit]{
   
   .search_box button[type="submit"]{
     cursor:pointer;
-    width:70px;
+    width:20%;
     height:50px;
     position:absolute;
-    left:270px;
+    left:80%;
     top:0;
     border-radius:0 2px 2px 0;
     background:#ff7800;
@@ -89,7 +96,7 @@ input[type=submit]{
     width: 80%;
     margin:0 auto;
   }
-  .input input[type=text] {
+  .input input {
     font: 15px/24px sans-serif;
     box-sizing: border-box;
     width: 100%;
@@ -100,10 +107,10 @@ input[type=submit]{
     border-radius: 4px;
     outline: none;
   }
-  .input input[type=text]:focus {
+  .input input:focus {
     border-color: #da3c41;
   }
-  .input input[type=text] {
+  .input input {
     padding-left: 40px;
   }
   .input i {
@@ -146,4 +153,22 @@ input[type=submit]{
   }
   .button:hover{
     background:#ff8911;
+  }
+
+  .filelabel{
+    display: inline-block;
+    position: relative;
+    background-color: #1877F2;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.5s;
+  }
+  .filelabel:hover{
+    background-color: #004db1;
+  }
+  
+  .fileinput{
+    display: none;
   }

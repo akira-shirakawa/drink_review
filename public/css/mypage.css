@@ -1,0 +1,28 @@
+:root{
+    --orange:#ff7800;
+    --black:#130f40;
+    --loght-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1)
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1)
+}
+.mypage_wrap{
+    display:flex;
+    flex-wrap:wrap;
+    
+}
+.mypage_wrap .left_side{
+    width:50%;
+}
+.mypage_wrap .right_side{
+    width:50%;
+   
+}
+@media(max-width:600px){
+    .mypage_wrap .left_side{
+        width:100%;
+    }
+    .mypage_wrap .right_side{
+        width:100%;
+       
+    } 
+}
