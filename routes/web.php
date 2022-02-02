@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 Route::get('/user/{id}','UserController@show');
 Route::post('/change_user','UserController@edit')->middleware('auth');
-Route::get('/post','PostController@create');
-Route::post('/post','PostController@store')->middleware('auth');;
+Route::get('/post','PostController@create')->middleware('auth');
+Route::post('/post','PostController@store')->middleware('auth');

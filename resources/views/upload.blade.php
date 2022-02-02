@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('meta')
-<link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+<link rel="stylesheet" href="{{ asset('css/upload.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.css" integrity="sha512-uKwYJOyykD83YchxJbUxxbn8UcKAQBu+1hcLDRKZ9VtWfpMb1iYfJ74/UIjXQXWASwSzulZEC1SFGj+cslZh7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 @section('main')
+
 <h2 class="mt-middle is-center">新規投稿</h2>
 
 
@@ -11,9 +13,15 @@
    
         <label for="file" class="filelabel ">画像をアップロードする</label>
         <input type="file" name="fileinput" id="file" class="fileinput" 　accept="image/*">
-        <p>名前</p>
-        <input type="text" name="name" value="{{ Auth::user()->name }}">
-        <button id="upload" class="mt-middle button">変更</button>
+        <p class="label">名前</p>
+        <input type="text" name="name" value="">
+        <p class="label">カテゴリー</p>
+        <input name="tags" id="tags" value="foo,bar,baz" />
+        <p class="label">よかったところ</p>
+        <textarea name="good" rows="4"></textarea>
+        <p class="label">悪かったところ</p>
+        <textarea name="bad" rows="4"></textarea>
+        <button id="upload" class="mt-middle button">投稿</button>
  
 <!-- アップロードボタン -->
 
@@ -123,7 +131,10 @@
             // 送信するフォームデータを作成する
             var name, fd = new FormData();
             const userName = $('input[name="name"]').val();
-            console.log(userName);
+            const good   =$('textarea[name="good"]').val();
+            const bad   =$('textarea[name="bad"]').val();
+            const tags = $('input[name="tags"]').val();
+            
             // 先ほど作った縮小済画像データを添付する
             if (file && blob) {
                 fd.append('file', blob);
@@ -131,11 +142,15 @@
             }
             
             fd.append('name',userName);
-
+            fd.append('good',good);
+            fd.append('bad',bad);
+            fd.append('tags',tags);
+            
+            
             // ajax でアップロード
 
             $.ajax({
-                    url: "/change_user", // 送信先のURL
+                    url: "/post", // 送信先のURL
                     type: 'POST',
                     dataType: 'json',
                     data: fd,
@@ -152,5 +167,9 @@
         });
 
     });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.js" integrity="sha512-wTIaZJCW/mkalkyQnuSiBodnM5SRT8tXJ3LkIUA/3vBJ01vWe5Ene7Fynicupjt4xqxZKXA97VgNBHvIf5WTvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+$('#tags').tagsInput();
 </script>
 @endsection
