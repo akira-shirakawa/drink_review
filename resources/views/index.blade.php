@@ -33,7 +33,15 @@
             </div>
             <div class="main_block_content two-items">
                 <div class="main_block_item ">
+                    <div class="main_block_image">
 
+                    </div>
+                    <div class="main_block_title">
+                        
+                    </div>
+                    <div class="main_block_create">
+
+                    </div>
                 </div>
             </div>
         </div>

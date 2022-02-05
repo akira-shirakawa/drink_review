@@ -28,7 +28,7 @@
             <a href="/register">新規登録</a>
             @endguest
             @auth
-           
+            <a href="/post">投稿</a>
             <span id="logout-button">ログアウト</span>
             @endauth
            
