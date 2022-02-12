@@ -86,15 +86,44 @@ input[type=submit]{
     font-weight: bolder;
     color:#fff;
   }
-  .main_block .main_block_content{
-      height:400px;
+  .two-items{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .main_block .main_block_content{  
       background:#fff;
   }
   .main_block_item{
+    display:block;
     display:flex;
     border:#eee 2px solid;
     width:50%;
+    height:90px;
+    padding:8px;
   }
+  .main_block_item:hover{
+    background:#eee;
+  }
+  .main_block_image{
+    width:80px;
+    height:80px;
+}
+
+.main_block_title{
+    width:70%;
+    font-size:1.4rem;
+    
+   
+}
+.main_block_create{
+    color:#ff7800;
+    
+}
+.cover{
+    object-fit: cover;
+    width:70px;
+    height:70px;
+}
   .input {
     position: relative;
     width: 80%;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 use Log;
 use App\Category;
 use Response;
@@ -18,7 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $data = Post::all();
+        return view('index',['data'=>$data]);
     }
 
     /**
@@ -70,9 +72,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('show_post',['post'=>$post]);
     }
 
     /**
@@ -107,5 +110,24 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+    public function like(Request $request)
+    {
+        $users = User::find(Auth::id());
+        $user = $users->likes
+        ->where('id',$request->post_id)->count();      
+        $user = !$user ? $users->likes()->attach($request->post_id) : $users->likes()->detach($request->post_id);
+        return back();      
+
+    }
+    public function show_like($id)
+    {
+        $user = User::findOrFail($id);
+        return view('like',['user'=>$user]);
+    }
+    public function search(Request $request)
+    {
+        //$search = $request->q;
+        dd($request);
     }
 }

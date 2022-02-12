@@ -23,11 +23,11 @@
 <!-- アップロードボタン -->
 <div class="main_block mt-3 mb-3">
             <div class="main_block_header">
-                <a class="header_left">自分の投稿</a>
-                <a class="header_right" href="/like/{{$user->id}}">参考になった投稿</a>
+                <a class="header_right" href="/user/{{$user->id}}">自分の投稿</a>
+                <a class="header_left" >参考になった投稿</a>
             </div>
             <div class="main_block_content two-items">
-                @foreach($user->posts as $value)
+                @foreach($user->likes as $value)
                 <a class="main_block_item " href="/post/{{$value->id}}">
                     <div class="main_block_image">
                     <img src="{{asset('uploads/'.$value->file_path)}}" class="cover" alt="{{$value->name}}画像">
