@@ -13,14 +13,14 @@ class Likes extends Migration
      */
     public function up()
     {
-        // Schema::create('post_user', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->bigInteger('user_id');
-        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        //     $table->bigInteger('post_id');
-        //     $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-        //     $table->timestamps();
-        // });
+        Schema::create('post_user', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
