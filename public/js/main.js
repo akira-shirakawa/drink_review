@@ -4,3 +4,6 @@ $('#logout-button').on('click',function(){
     $('#logout').submit();
    
 })
+$('.navbar .fa-bars').click(function(){
+    $('.smart').toggleClass('visible');
+})

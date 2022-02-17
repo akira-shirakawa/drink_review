@@ -4,7 +4,7 @@
             <h2 class="align-center mt-3">ログイン</h2>
             <div class="alert">
                 @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <div>{{ $error }}</div>
                 @endforeach
             </div>
             <form method="POST" action="{{ route('login') }}">

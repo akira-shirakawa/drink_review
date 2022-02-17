@@ -129,4 +129,19 @@ $(function() {
 
     });
 
+    $('.main_block_item').hover(function(){
+      $(this).find('.fa-bars').css('opacity','1')
+    },function(){
+        $(this).find('.fa-bars').css('opacity','0')
+    })
+
+    $('.fa-bars').click(function(e){
+        $(this).parent().find('.delete_box').toggleClass('is-active');
+        e.preventDefault(); 
+    })
+    $('.delete').click(function(e){
+        $(this).parent().find('form').submit();
+        e.preventDefault(); 
+    })
+
 });

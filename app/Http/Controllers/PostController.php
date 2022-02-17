@@ -20,7 +20,9 @@ class PostController extends Controller
     public function index()
     {
         $data = Post::all();
-        return view('index',['data'=>$data]);
+        $ranking = Post::withCount('likes')->orderBy('likes_count','desc')->get();
+       
+        return view('index',['data'=>$data,'ranking'=>$ranking]);
     }
 
     /**
@@ -107,9 +109,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request)
     {
-        //
+        $post = Post::find($request->post_id);
+        $post->delete();
+        return back();
+
     }
     public function like(Request $request)
     {
@@ -127,7 +132,16 @@ class PostController extends Controller
     }
     public function search(Request $request)
     {
-        //$search = $request->q;
-        dd($request);
+        $search = $request->q;
+        if(substr($search,0,1) == '#'){
+            $category = Category::where('name',$search)->get();
+           
+            return view('search',['data'=>$category]);
+
+        }else{
+            $post = Post::where('name',$search)->get();
+           
+            return view('search',['data'=>$post]);
+        }
     }
 }

@@ -28,12 +28,28 @@
             <a href="/register">新規登録</a>
             @endguest
             @auth
-            <a href="/user/{{auth::id()}}">マイページ</a>
+            <a href="/user/{{auth::id()}}">マイページ </a>
             <a href="/post">投稿</a>
             <span id="logout-button">ログアウト</span>
             @endauth
+            <i class="fas fa-bars"></i>
+           
            
         </nav>
+        <div class="smart">
+            <a href="/">ホーム</a>
+           
+           @guest
+           <a href="/login">ログイン</a>
+           <a href="/register">新規登録</a>
+           @endguest
+           @auth
+           <a href="/user/{{auth::id()}}">マイページ </a>
+           <a href="/post">投稿</a>
+           <span id="logout-button">ログアウト</span>
+           @endauth
+          
+        </div>
     </header>
     <div class="main">
         <div class="container">

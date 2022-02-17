@@ -13,6 +13,9 @@
     outline: none;
     border:none;
 }
+ul li{
+  list-style: none;
+}
 input[type=submit]{
     font-family: FontAwesome
    }
@@ -117,7 +120,44 @@ input[type=submit]{
 }
 .main_block_create{
     color:#ff7800;
+    position:relative;
     
+}
+.main_block_item .fa-bars{
+  position:absolute;
+  font-size:2rem;
+  top:0;
+  right:0;
+  color:#444;
+  opacity:0;
+  width:20px;
+  height:20px;
+  z-index: 10;
+}
+.delete_box{
+  position:absolute;
+  font-size:2rem;
+  top:1;
+  right:0;
+  color:#444;
+  background:#fff;
+  display:none;
+  box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.6);
+  
+  border-radius:3px;
+  z-index: 10;
+}
+
+.delete_box .delete:hover,.delete_box .edit:hover{
+  background:#eee;
+  
+}
+.delete_box .delete,.delete_box .edit{
+  
+  padding:10px;
+}
+.is-active{
+  display:block;
 }
 .cover{
     object-fit: cover;

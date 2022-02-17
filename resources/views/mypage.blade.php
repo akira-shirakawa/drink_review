@@ -37,14 +37,23 @@
                     </div>
                     <div class="main_block_create">
                     {{$value->created_at}}
+                    <i class="fas fa-bars"></i>
+                    <div class="delete_box">
+                        <div class="delete_box_item delete">
+                            消去<i class="fas fa-trash-alt"></i>
+                            <form action="/delete_post" method="post">
+                            @csrf
+                                <input type="hidden" name ="post_id" value="{{$value->id}}">
+                            </form>                        
+                        </div>
+                        <div class="delete_box_item edit">編集</div>
+                    </div>
                     </div>
                 </a>
                 @endforeach
             </div>
         </div>
-<!-- 縮小画像の表示領域 -->
 
-<!-- 以下、JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ asset('js/mypage.js')}}" ></script>
 @endsection
