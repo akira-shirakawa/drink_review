@@ -5,7 +5,7 @@
 @section('main')
 <div class="is-center">
     <form method="get" action="/search" class="search_box mt-middle" >
-            <input type="text" size="25" placeholder="キーワード検索" name="q">
+            <input type="text" size="25" placeholder="キーワード検索" name="q" value="{{$search}}">
                 
             <button type="submit">
                 <i class="fas fa-search"></i>

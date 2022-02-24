@@ -77,7 +77,11 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('show_post',['post'=>$post]);
+        $search = $post->tags->first()->name;
+        $data = Post::whereHas('tags', function($query) use($search){              
+            $query->where('name', $search);
+        })->get();
+        return view('show_post',['post'=>$post,'data'=>$data]);
     }
 
     /**
@@ -132,16 +136,22 @@ class PostController extends Controller
     }
     public function search(Request $request)
     {
+        
         $search = $request->q;
-        if(substr($search,0,1) == '#'){
-            $category = Category::where('name',$search)->get();
+        // dd(substr($search,1));
+        if(substr($search,0,1) == '#' || substr($search,0,1) == '%23'){
            
-            return view('search',['data'=>$category]);
+            $category = Post::whereHas('tags', function($query) use($search){              
+                $query->where('name', substr($search,1));
+            })->get();
+            
+           
+            return view('search',['data'=>$category,'search'=>$search]);
 
         }else{
-            $post = Post::where('name',$search)->get();
+            $post = Post::where('name','like',"%$search%")->get();
            
-            return view('search',['data'=>$post]);
+            return view('search',['data'=>$post,'search'=>$search]);
         }
     }
 }

@@ -7,6 +7,7 @@ $(function() {
     // ファイルが選択されたら実行される関数
     $('input[type=file]').change(function() {
         $('#user_image').remove();
+        $('.button').removeClass('is-hide');
         // ファイルを取得する
         file = $(this).prop('files')[0];
         console.log($(this));
@@ -142,6 +143,9 @@ $(function() {
     $('.delete').click(function(e){
         $(this).parent().find('form').submit();
         e.preventDefault(); 
+    })
+    $('input[name="name"]').on('input',function(){
+        $('.button').removeClass('is-hide');
     })
 
 });

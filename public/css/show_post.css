@@ -57,10 +57,22 @@
     
     margin:0 auto;
 }
-.main_image,.good,.like,.bad{
+.main_image,.good,.like,.bad,.user_name,.category{
     width:80%;
     margin:0 auto;
 }
 p{
     font-size:2rem;
+}
+.user_name,.category{
+    color:#ff7800;
+    font-size:2rem;
+    text-align:left;
+
+}
+#user_image{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    vertical-align: middle;
 }

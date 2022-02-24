@@ -13,7 +13,7 @@
 
 <label for="file" class="filelabel ">画像をアップロードする</label>
 <input type="file" name="fileinput" id="file" class="fileinput" accept="image/*">
-<p class="label">名前</p>
+<p class="label">タイトル</p>
 <p class="validation"></p>
 <input type="text" name="name" value="" class="input">
 <p class="label">カテゴリー</p>

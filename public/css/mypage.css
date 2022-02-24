@@ -67,3 +67,6 @@ input{
 .label{
     font-size:2rem;
 }
+.is-hide{
+    display:none;
+}

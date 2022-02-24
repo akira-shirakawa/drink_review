@@ -9,7 +9,7 @@
     <div class="left_side">
         <canvas id="canvas" width="0" height="0"></canvas>
 
-        <img src="/uploads/{{ $user->file_path ?? 'fake.png'}}" id="user_image" width="90%">
+        <img src="/uploads/{{ $user->file_path ?? 'fake.png'}}" id="user_image" width="60%">
     </div>
     <div class="right_side is-center">
         <label for="file" class="filelabel ">画像をアップロードする</label>
