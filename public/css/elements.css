@@ -134,6 +134,9 @@ input[type=submit]{
   height:20px;
   z-index: 10;
 }
+.show_more{
+  font-size:1.5rem;
+}
 .delete_box{
   position:absolute;
   font-size:2rem;

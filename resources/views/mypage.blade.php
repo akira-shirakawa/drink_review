@@ -46,7 +46,7 @@
                                 <input type="hidden" name ="post_id" value="{{$value->id}}">
                             </form>                        
                         </div>
-                        <div class="delete_box_item edit">編集</div>
+                        <!-- <div class="delete_box_item edit">編集</div> -->
                     </div>
                     </div>
                 </a>

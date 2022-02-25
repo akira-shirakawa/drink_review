@@ -26,6 +26,8 @@
             </div>
         </a>
         @endforeach
+        <div class="pagi">{{ $data->appends(request()->query())->links() }}</div>
+        
     </div>
 
 </div>

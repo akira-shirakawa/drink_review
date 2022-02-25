@@ -19,8 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::all();
-        $ranking = Post::withCount('likes')->orderBy('likes_count','desc')->get();
+        $data = Post::all()->take(6);
+        $ranking = Post::withCount('likes')->orderBy('likes_count','desc')->take(6)->get();
        
         return view('index',['data'=>$data,'ranking'=>$ranking]);
     }
@@ -138,18 +138,27 @@ class PostController extends Controller
     {
         
         $search = $request->q;
-        // dd(substr($search,1));
+       
+        if($search == "#sorting" || $search == "%23sorting"){
+           
+            $post = Post::withCount('likes')->orderBy('likes_count','desc')->paginate(2);
+           
+            return view('search',['data'=>$post,'search'=>$search]);
+        }elseif($search == "#new" || $search == "%23new"){
+            $post = Post::paginate(2);
+            return view('search',['data'=>$post,'search'=>$search]);
+        }
         if(substr($search,0,1) == '#' || substr($search,0,1) == '%23'){
            
             $category = Post::whereHas('tags', function($query) use($search){              
                 $query->where('name', substr($search,1));
-            })->get();
+            })->paginate(2);
             
            
             return view('search',['data'=>$category,'search'=>$search]);
 
         }else{
-            $post = Post::where('name','like',"%$search%")->get();
+            $post = Post::where('name','like',"%$search%")->paginate(2);
            
             return view('search',['data'=>$post,'search'=>$search]);
         }

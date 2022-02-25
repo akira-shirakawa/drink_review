@@ -29,3 +29,21 @@ input{
     display:flex;
     flex-wrap:wrap;
 }
+
+.pagi{
+    display:block;
+    width:80%;
+    margin: 0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+ul li{
+    display:inline;
+    padding:15px;
+    background:#ff7800;
+    font-size:1.3rem;
+    color:white;
+    font-weight: bolder;
+    
+    margin-left:10px;
+}

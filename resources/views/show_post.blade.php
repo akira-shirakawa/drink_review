@@ -4,7 +4,7 @@
 @endsection
 @section('main')
 <div class="is-center">
-    <h2 class="mt-middle is-center"></h2>
+    <h2 class="mt-middle is-center"syle="height:100px"></h2>
     <div class="main_image">
         <img src="{{asset('uploads/'.$post->file_path)}}" class="image" alt="{{$post->name}}画像">
         <div class="title">      

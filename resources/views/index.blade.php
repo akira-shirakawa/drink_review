@@ -24,10 +24,13 @@
                         {{$value->name}}
                         </div>
                         <div class="main_block_create">
-                        {{$value->created_at}}
+                        {{$value->created_at}}</br>
+                        <i class="far fa-thumbs-up"></i>
+                        {{$value->likes->count()}}
                         </div>
                     </a>
                     @endforeach
+                    <a href="/search/?q=%23sorting"class="show_more">もっと見る</a>
             </div>
         </div>
         <div class="main_block mt-3">
@@ -58,6 +61,7 @@
                     </div>
                 </a>
                 @endforeach
+                <a href="/search/?q=%23new"class="show_more">もっと見る</a>
             </div>
         </div>
     @endsection
