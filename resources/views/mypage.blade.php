@@ -3,6 +3,11 @@
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 @endsection
 @section('main')
+<div class="alert-box">
+  
+    変更が保存されました。
+  
+</div>
 <h2 class="mt-middle is-center">マイページ</h2>
 @if($user->id = Auth::id())
 <div class="mypage_wrap">

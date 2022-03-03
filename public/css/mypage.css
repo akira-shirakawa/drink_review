@@ -70,3 +70,23 @@ input{
 .is-hide{
     display:none;
 }
+.alert-box{
+    position: absolute;
+    top:120px;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:300;
+    width:50%;
+    padding:20px 0;
+    background-color:rgb(245, 154, 124);
+    font-size:2rem;
+    text-align:center;
+    padding-top:0px;
+    color:#fff;
+    display:none;
+    border-radius:15px;
+  }
+  .alert{
+    margin-bottom:5px;
+    font-size:.9em;
+  }

@@ -50,7 +50,10 @@
            @endauth
           
         </div>
+        
     </header>
+    <div class="modal__bg">       
+        </div>
     <div class="main">
         <div class="container">
             <div class="left">

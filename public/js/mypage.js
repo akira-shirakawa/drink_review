@@ -123,6 +123,7 @@ $(function() {
             })
             .done(function(data, textStatus, jqXHR) {
                 $('#upload>i').removeClass('fa-spinner').removeClass('fa-spin');
+                $(".alert-box").show().delay(1000).fadeOut();
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 // 送信失敗
