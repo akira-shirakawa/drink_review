@@ -13,11 +13,11 @@
             <form method="POST" action="{{ route('register') }}">
                     @csrf
                 <div class="input mt-3">
-                    <input type="text" placeholder="ユーザー名" name="name" old="name">
+                    <input type="text" placeholder="ユーザー名" name="name" value="{{old('name')}}">
                     <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                 </div>
                 <div class="input mt-3">
-                    <input type="text" placeholder="メールアドレス" name="email" old="email">
+                    <input type="text" placeholder="メールアドレス" name="email" value="{{old('email')}}">
                     <i class="far fa-envelope"></i>
                 </div>
                 <div class="input mt-3">
