@@ -3,6 +3,11 @@
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
 @endsection
 @section('main')
+<div class="alert-box">
+  
+    変更が保存されました。
+  
+</div>
 <h2 class="mt-middle is-center">マイページ</h2>
 @if($user->id = Auth::id())
 <div class="mypage_wrap">
@@ -16,7 +21,7 @@
         <input type="file" name="fileinput" id="file" class="fileinput" accept="image/*">
         <p class="label">名前</p>
         <input type="text" name="name" value="{{ Auth::user()->name }}">
-        <button id="upload" class="mt-middle button"><i class="fas"></i><span>変更</span></button>
+        <button id="upload" class="mt-middle button is-hide"><i class="fas"></i><span>変更</span></button>
     </div>
 </div>
 @endif

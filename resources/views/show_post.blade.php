@@ -30,10 +30,12 @@
         <span class="number">{{$post->likes->count()}}</span>
     </div>
 </div>
+@auth
 <form action="/like" method="post" class="like_form">
 @csrf
     <input type="hidden" value="{{$post->id}}" name="post_id">
 </form>
+@endauth
 
 <div class="main_block mt-3 mb-3">
     <div class="main_block_header">

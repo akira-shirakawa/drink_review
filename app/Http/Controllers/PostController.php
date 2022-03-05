@@ -138,7 +138,9 @@ class PostController extends Controller
     {
         
         $search = $request->q;
-       
+        if($search == ""){
+            return redirect('/');
+        }
         if($search == "#sorting" || $search == "%23sorting"){
            
             $post = Post::withCount('likes')->orderBy('likes_count','desc')->paginate(2);
