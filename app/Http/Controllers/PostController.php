@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::all()->take(6);
+        $data = Post::latest()->take(6)->get();
         $ranking = Post::withCount('likes')->orderBy('likes_count','desc')->take(6)->get();
        
         return view('index',['data'=>$data,'ranking'=>$ranking]);

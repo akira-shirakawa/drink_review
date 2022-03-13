@@ -11,6 +11,10 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
+        <div class="hit">
+        {{count($data)}}件ヒット
+        </div>
+   
     <div class="main_block_content mt-middle">
        
         @foreach($data as $value)

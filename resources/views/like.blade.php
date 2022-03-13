@@ -17,7 +17,7 @@
         <img src="/uploads/{{ $user->file_path ?? 'fake.png'}}" id="user_image" width="60%">
     </div>
     <div class="right_side is-center">
-        <label for="file" class="filelabel ">画像をアップロードする</label>
+        <label for="file" class="filelabel ">プロフィール画像をアップロードする(jpeg,png)</label>
         <input type="file" name="fileinput" id="file" class="fileinput" accept="image/*">
         <p class="label">名前</p>
         <input type="text" name="name" value="{{ Auth::user()->name }}">

@@ -11,7 +11,7 @@
                     @csrf
                 
                 <div class="input mt-3">
-                    <input type="text" placeholder="メールアドレス" name="email">
+                    <input type="text" placeholder="メールアドレス" name="email" value="{{old('email')}}">
                     <i class="far fa-envelope"></i>
                 </div>
                 <div class="input mt-3">
