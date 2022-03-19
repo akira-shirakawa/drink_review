@@ -21,3 +21,5 @@ Route::post('/like','PostController@like')->middleware('auth');
 Route::get('/like/{id}','PostController@show_like')->middleware('auth');
 Route::get('/search','PostController@search');
 Route::post('/delete_post','PostController@destroy')->middleware('auth');
+Route::get('/post/edit/{id}','PostController@update')->middleware('auth');
+Route::post('/post/edit','PostController@edit')->middleware('auth');

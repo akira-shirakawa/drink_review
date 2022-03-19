@@ -90,9 +90,32 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Request $request)
     {
-        //
+        $unique = uniqid().'.jpeg';
+        $post = Post::find($request->post_id);
+        if($request->file){
+            $request->file->move(public_path('uploads/'),$unique);       
+            $post->file_path = $unique;
+        }
+        
+        $post->name = $request->name;
+        $post->good = $request->good ?? '特になし';
+        $post->bad = $request->bad ?? '特になし';
+        $post->user_id = Auth::id();
+        $post->save();
+
+        $category = $request->tags;
+        $category = explode(',',$category);
+        $post->tags->each(function($tags){
+            $tags->delete();
+        });
+        foreach($category as $value){
+            
+            $tag = Category::firstOrCreate(['name' => $value]);
+            $post->tags()->attach($tag->id);
+        }
+       
     }
 
     /**
@@ -102,9 +125,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update($id)
     {
-        //
+        $post = Post::find($id);
+        return view('edit',['post'=>$post]);
     }
 
     /**
@@ -143,18 +167,18 @@ class PostController extends Controller
         }
         if($search == "#sorting" || $search == "%23sorting"){
            
-            $post = Post::withCount('likes')->orderBy('likes_count','desc')->paginate(2);
+            $post = Post::withCount('likes')->orderBy('likes_count','desc')->paginate(10);
            
             return view('search',['data'=>$post,'search'=>$search]);
         }elseif($search == "#new" || $search == "%23new"){
-            $post = Post::paginate(2);
+            $post = Post::paginate(10);
             return view('search',['data'=>$post,'search'=>$search]);
         }
         if(substr($search,0,1) == '#' || substr($search,0,1) == '%23'){
            
             $category = Post::whereHas('tags', function($query) use($search){              
                 $query->where('name', substr($search,1));
-            })->paginate(2);
+            })->paginate(10);
             
            
             return view('search',['data'=>$category,'search'=>$search]);

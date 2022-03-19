@@ -10,6 +10,7 @@ $(function() {
         // ファイルを取得する
         file = $(this).prop('files')[0];
         console.log($(this));
+        $('img').remove();
 
         // 選択されたファイルが画像かどうか判定する
         // ここでは、jpeg形式とpng形式のみを画像をみなす
@@ -105,6 +106,7 @@ $(function() {
         const good   =$('textarea[name="good"]').val() ;
         const bad   =$('textarea[name="bad"]').val() ;
         const tags = $('input[name="tags"]').val();
+        const post_id = $('input[name="post_id"]').val();
         if(!userName){
             $('i').removeClass('fa-spinner').removeClass('fa-spin');
             $('.validation').text('名前を記入してください');
@@ -118,19 +120,21 @@ $(function() {
             
         }else{
             $('i').removeClass('fa-spinner').removeClass('fa-spin');
-            return;
+            //return;
         }
         
         fd.append('name',userName);
         fd.append('good',good);
         fd.append('bad',bad);
         fd.append('tags',tags);
+        fd.append('post_id',post_id);
         
         
-        // ajax でアップロード
+        
+       // ajax でアップロード
 
         $.ajax({
-                url: "/post", // 送信先のURL
+                url: "/post/edit", // 送信先のURL
                 type: 'POST',
                 dataType: 'text',
                 data: fd,
@@ -138,16 +142,14 @@ $(function() {
                 contentType: false
             })
             .done(function(data, textStatus, jqXHR) {
-                window.location.href = './';
-                console.log('shira');
+                
+               window.location.href= '../../';
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
-                // 送信失敗
+                
             });
+           
 
     });
-    $('input[name="name"]').keydown(function(){
-        $('.validation').text('');
-    })
 
 });
