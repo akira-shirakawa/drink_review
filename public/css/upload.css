@@ -21,7 +21,7 @@ input{
     width:80% !important;
     margin:0 auto !important;
 } 
-.validation{
+.validation,.validation_image{
     font-size:2rem;
     color:red;
 }

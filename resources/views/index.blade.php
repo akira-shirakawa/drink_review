@@ -21,7 +21,8 @@
                         <img src="{{asset('uploads/'.$value->file_path)}}" class="cover" alt="{{$value->name}}画像">
                         </div>
                         <div class="main_block_title">
-                        {{$value->name}}
+
+                        {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
                         </div>
                         <div class="main_block_create">
                         {{$value->created_at}}</br>
@@ -35,12 +36,14 @@
         </div>
         <div class="main_block mt-3">
             <div class="main_block_header">
-                カテゴリー
+                人気カテゴリー
             </div>
             <div class="main_block_content two-items">
-                <div class="main_block_item ">
-
-                </div>
+                @foreach($category as $value)               
+                <a class="main_block_item category" href="/search/?q=%23{{$value->name}}">
+                {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
+                </a>
+                @endforeach
             </div>
         </div>
         <div class="main_block mt-3 mb-3">
@@ -54,7 +57,7 @@
                     <img src="{{asset('uploads/'.$value->file_path)}}" class="cover" alt="{{$value->name}}画像">
                     </div>
                     <div class="main_block_title">
-                    {{$value->name}}
+                    {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
                     </div>
                     <div class="main_block_create">
                     {{$value->created_at}}

@@ -10,10 +10,10 @@
 
 <canvas id="canvas" width="0" height="0"></canvas>
 
-
-<label for="file" class="filelabel ">画像をアップロードする</label>
+<p class="validation_image"></p>
+<label for="file" class="filelabel ">画像をアップロードする<span>(必須)</span></label>
 <input type="file" name="fileinput" id="file" class="fileinput" accept="image/*">
-<p class="label">タイトル</p>
+<p class="label">タイトル<span>(必須)</span></p>
 <p class="validation"></p>
 <input type="text" name="name" value="" class="input">
 <p class="label">カテゴリー</p>

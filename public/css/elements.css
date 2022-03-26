@@ -96,6 +96,11 @@ input[type=submit]{
   .main_block .main_block_content{  
       background:#fff;
   }
+  .main_block_content .category{
+    font-size:3rem;
+    text-align:center;
+    color:#ff7800;
+  }
   .main_block_item{
     display:block;
     display:flex;

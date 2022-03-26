@@ -19,6 +19,7 @@ $(function() {
             blob = null;
             return;
         }
+        $('.validation_image').text('');
 
         // 画像をリサイズ
         var image = new Image();
@@ -105,6 +106,7 @@ $(function() {
         const good   =$('textarea[name="good"]').val() ;
         const bad   =$('textarea[name="bad"]').val() ;
         const tags = $('input[name="tags"]').val();
+        
         if(!userName){
             $('i').removeClass('fa-spinner').removeClass('fa-spin');
             $('.validation').text('名前を記入してください');
@@ -116,8 +118,10 @@ $(function() {
         if (file && blob) {
             fd.append('file', blob);
             
+            
         }else{
             $('i').removeClass('fa-spinner').removeClass('fa-spin');
+            $('.validation_image').text('画像を添付してください');
             return;
         }
         

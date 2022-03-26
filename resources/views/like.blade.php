@@ -18,7 +18,7 @@
     </div>
     <div class="right_side is-center">
         <label for="file" class="filelabel ">プロフィール画像をアップロードする(jpeg,png)</label>
-        <input type="file" name="fileinput" id="file" class="fileinput" accept="image/*">
+        <input type="file" name="fileinput" id="file" class="fileinput" accept=".png,.jpeg">
         <p class="label">名前</p>
         <input type="text" name="name" value="{{ Auth::user()->name }}">
         <button id="upload" class="mt-middle button is-hide"><i class="fas"></i><span>変更</span></button>
@@ -38,7 +38,7 @@
                     <img src="{{asset('uploads/'.$value->file_path)}}" class="cover" alt="{{$value->name}}画像">
                     </div>
                     <div class="main_block_title">
-                    {{$value->name}}
+                    {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
                     </div>
                     <div class="main_block_create">
                     {{$value->created_at}}

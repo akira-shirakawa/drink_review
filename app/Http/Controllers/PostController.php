@@ -21,8 +21,9 @@ class PostController extends Controller
     {
         $data = Post::latest()->take(6)->get();
         $ranking = Post::withCount('likes')->orderBy('likes_count','desc')->take(6)->get();
+        $category = Category::withCount('posts')->orderBy('posts_count','desc')->take(6)->get();
        
-        return view('index',['data'=>$data,'ranking'=>$ranking]);
+        return view('index',['data'=>$data,'ranking'=>$ranking,'category'=>$category]);
     }
 
     /**
