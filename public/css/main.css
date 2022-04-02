@@ -48,6 +48,9 @@ body{
     color:var(--orange);
     margin:0 1rem;
 }
+#logout-button{
+    cursor: pointer;
+}
 .navbar .fa-bars{
     display:none;
 }

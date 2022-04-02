@@ -22,7 +22,7 @@
 <textarea name="good" rows="4"></textarea>
 <p class="label">悪かったところ</p>
 <textarea name="bad" rows="4"></textarea>
-<button id="upload" class="mt-middle button"><i class="fa "></i>投稿</button>
+<button id="upload" class="mt-middle button mb-5"><i class="fa "></i>投稿</button>
 </div>
 
  
