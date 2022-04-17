@@ -138,7 +138,14 @@ $(function() {
     })
 
     $('.fa-bars').click(function(e){
-        $(this).parent().find('.delete_box').toggleClass('is-active');
+        flag = false;
+        if($(this).parent().find('.delete_box').hasClass('is-active')){
+            flag = true;
+        }
+        $('.fa-bars').parent().find('.delete_box').removeClass('is-active');    
+        flag ? $(this).parent().find('.delete_box').removeClass('is-active') : $(this).parent().find('.delete_box').addClass('is-active');
+       
+        
         e.preventDefault(); 
     })
     $('.delete').click(function(e){
