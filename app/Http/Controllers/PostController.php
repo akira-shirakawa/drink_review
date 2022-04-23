@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Post;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use Log;
 use App\Category;
-use Response;
 
 class PostController extends Controller
 {

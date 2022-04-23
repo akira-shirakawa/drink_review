@@ -1,3 +1,13 @@
+.sub_wrapper{
+    width:80%;
+    margin:0 auto;
+}
+@media(max-width:700px){
+    .sub_wrapper{
+        width:100%;
+        
+    }
+}
 .main_image{
     position:relative;
     width:100%;
@@ -54,13 +64,14 @@
 }
 .is-center{
     background: white;
+    padding:20px;
     
-    margin:0 auto;
+   
 }
-.main_image,.good,.like,.bad,.user_name,.category{
+/* .main_image,.good,.like,.bad,.user_name,.category{
     width:80%;
     margin:0 auto;
-}
+} */
 .main_image{
     margin-top:100px;
 }

@@ -4,30 +4,32 @@
 @endsection
 @section('main')
 <div class="is-center">
-    <h2 class="mt-middle is-center"syle="height:100px"></h2>
-    <div class="main_image">
-        <img src="{{asset('uploads/'.$post->file_path)}}" class="image" alt="{{$post->name}}画像">
-        <div class="title">      
+    <div class="sub_wrapper">  
+       
+        <div class="main_image">
+            <img src="{{asset('uploads/'.$post->file_path)}}" class="image" alt="{{$post->name}}画像">
+            <div class="title">      
+            </div>
+            <h1 class="title_string">{{$post->name}}</h1>
         </div>
-        <h1 class="title_string">{{$post->name}}</h1>
-    </div>
-    <div class="user_name">
-        作成者：<img src="/uploads/{{ $post->user->file_path ?? 'fake.png'}}" id="user_image">{{$post->user->name}}
-    </div>
-    <div class="category">
-        カテゴリー：
-        @foreach($post->tags as $value)
-        <a href="/search/?q=%23{{$value->name}}">{{$value->name}}</a>,
-        
-        @endforeach
-    </div>
-    <div class="good">よかったところ</div>
-    <p>{{$post->good}}</p>
-    <div class="bad">悪かったところ</div>
-    <p>{{$post->bad}}</p>
-    <div class="like">
-        <span>参考になった</span>
-        <span class="number">{{$post->likes->count()}}</span>
+        <div class="user_name mt-2">
+            作成者：<img src="/uploads/{{ $post->user->file_path ?? 'fake.png'}}" id="user_image"><span class="ml-1">{{$post->user->name}}</span>
+        </div>
+        <div class="category mt-2">
+            カテゴリー：
+            @foreach($post->tags as $value)
+            <a href="/search/?q=%23{{$value->name}}">{{$value->name}}</a>,
+            
+            @endforeach
+        </div>
+        <div class="good mt-2 mb-2">よかったところ</div>
+        <p>{{$post->good}}</p>
+        <div class="bad mt-2 mb-2">悪かったところ</div>
+        <p>{{$post->bad}}</p>
+        <div class="like mt-2 mb-2">
+            <span>参考になった</span>
+            <span class="number">{{$post->likes->count()}}</span>
+        </div>
     </div>
 </div>
 @auth
