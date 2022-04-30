@@ -45,4 +45,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');
     }
+    public function like_post($request)
+    {
+        $user = $this->likes
+        ->where('id',$request->post_id)->count();      
+        $user = !$user ? $this->likes()->attach($request->post_id) : $this->likes()->detach($request->post_id);
+        return $user;
+    }
 }

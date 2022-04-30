@@ -15,7 +15,7 @@ Route::get('/','PostController@index');
 Route::get('/user/{id}','UserController@show');
 Route::post('/change_user','UserController@edit')->middleware('auth');
 Route::get('/post','PostController@create')->middleware('auth');
-Route::get('/post/{id}','PostController@show');
+Route::get('/post/{post}','PostController@show')->name('post.show');
 Route::post('/post','PostController@store')->middleware('auth');
 Route::post('/like','PostController@like')->middleware('auth');
 Route::get('/like/{id}','PostController@show_like')->middleware('auth');

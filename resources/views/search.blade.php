@@ -18,7 +18,7 @@
     <div class="main_block_content mt-middle">
        
         @foreach($data as $value)
-        <a class="main_block_item " href="/post/{{$value->id}}">
+        <a class="main_block_item " href="{{route('post.show',['post'=>$value])}}">
             <div class="main_block_image">
             <img src="{{asset('uploads/'.$value->file_path)}}" class="cover" alt="{{$value->name}}画像">
             </div>

@@ -13,13 +13,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Post $post)
     {
-        $data = Post::latest()->take(6)->get();
-        $ranking = Post::withCount('likes')->orderBy('likes_count','desc')->take(6)->get();
-        $category = Category::withCount('posts')->orderBy('posts_count','desc')->take(6)->get();
-       
-        return view('index',['data'=>$data,'ranking'=>$ranking,'category'=>$category]);
+        
+        $post = $post->index_data();
+        return view('index',$post);
     }
 
     /**
@@ -38,31 +36,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Post $post)
     {
-        $unique = uniqid().'.jpeg';
-        $post = new Post;
-        if($request->file){
-            $request->file->move(public_path('uploads/'),$unique);       
-            $post->file_path = $unique;
-        }
         
-        $post->name = $request->name;
-        $post->good = $request->good ?? '特になし';
-        $post->bad = $request->bad ?? '特になし';
-        $post->user_id = Auth::id();
-        $post->save();
-
-        $category = $request->tags;
-        $category = explode(',',$category);
-
-        foreach($category as $value){
-            
-            $tag = Category::firstOrCreate(['name' => $value]);
-            $post->tags()->attach($tag->id);
-        }
-       
-        
+        $post->storeData($request,$post);
+     
     }
 
     /**
@@ -71,13 +49,9 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $post = Post::findOrFail($id);
-        $search = $post->tags->first()->name;
-        $data = Post::whereHas('tags', function($query) use($search){              
-            $query->where('name', $search);
-        })->get();
+    public function show(Post $post)
+    {             
+        $data = $post->show_post($post);
         return view('show_post',['post'=>$post,'data'=>$data]);
     }
 
@@ -87,32 +61,9 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request,Post $post)
     {
-        $unique = uniqid().'.jpeg';
-        $post = Post::find($request->post_id);
-        if($request->file){
-            $request->file->move(public_path('uploads/'),$unique);       
-            $post->file_path = $unique;
-        }
-        
-        $post->name = $request->name;
-        $post->good = $request->good ?? '特になし';
-        $post->bad = $request->bad ?? '特になし';
-        $post->user_id = Auth::id();
-        $post->save();
-
-        $category = $request->tags;
-        $category = explode(',',$category);
-        $post->tags->each(function($tags){
-            $tags->delete();
-        });
-        foreach($category as $value){
-            
-            $tag = Category::firstOrCreate(['name' => $value]);
-            $post->tags()->attach($tag->id);
-        }
-       
+        $post->edit_post($request); 
     }
 
     /**
@@ -144,9 +95,7 @@ class PostController extends Controller
     public function like(Request $request)
     {
         $users = User::find(Auth::id());
-        $user = $users->likes
-        ->where('id',$request->post_id)->count();      
-        $user = !$user ? $users->likes()->attach($request->post_id) : $users->likes()->detach($request->post_id);
+        $users->like_post($request);
         return back();      
 
     }
@@ -155,35 +104,9 @@ class PostController extends Controller
         $user = User::findOrFail($id);
         return view('like',['user'=>$user]);
     }
-    public function search(Request $request)
+    public function search(Request $request,Post $post)
     {
-        
-        $search = $request->q;
-        if($search == ""){
-            return redirect('/');
-        }
-        if($search == "#sorting" || $search == "%23sorting"){
-           
-            $post = Post::withCount('likes')->orderBy('likes_count','desc')->paginate(10);
-           
-            return view('search',['data'=>$post,'search'=>$search]);
-        }elseif($search == "#new" || $search == "%23new"){
-            $post = Post::paginate(10);
-            return view('search',['data'=>$post,'search'=>$search]);
-        }
-        if(substr($search,0,1) == '#' || substr($search,0,1) == '%23'){
-           
-            $category = Post::whereHas('tags', function($query) use($search){              
-                $query->where('name', substr($search,1));
-            })->paginate(10);
-            
-           
-            return view('search',['data'=>$category,'search'=>$search]);
-
-        }else{
-            $post = Post::where('name','like',"%$search%")->paginate(2);
-           
-            return view('search',['data'=>$post,'search'=>$search]);
-        }
+        $post = $post->search_data($request);
+        return $post ? view('search',$post) : back();
     }
 }
