@@ -119,9 +119,12 @@ input[type=submit]{
 
 .main_block_title{
     width:70%;
-    font-size:1.4rem;
+    font-size:2rem;
     
    
+}
+.main_block_title>span{
+  font-size:1.5rem;
 }
 .main_block_create{
     color:#ff7800;

@@ -22,7 +22,8 @@
                         </div>
                         <div class="main_block_title">
 
-                        {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
+                        {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}</br>
+                        <span>作成者：{{$value->user->name}}</span>
                         </div>
                         <div class="main_block_create">
                         {{$value->created_at}}</br>
@@ -41,7 +42,7 @@
             <div class="main_block_content two-items">
                 @foreach($category as $value)               
                 <a class="main_block_item category" href="/search/?q=%23{{$value->name}}">
-                {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
+                {{mb_strlen($value->name) > 20 ? mb_substr($value->name,0,10).'...' : $value->name}}
                 </a>
                 @endforeach
             </div>
@@ -57,7 +58,8 @@
                     <img src="{{asset('uploads/'.$value->file_path)}}" class="cover" alt="{{$value->name}}画像">
                     </div>
                     <div class="main_block_title">
-                    {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}
+                    {{mb_strlen($value->name) > 10 ? mb_substr($value->name,0,10).'...' : $value->name}}</br>
+                    <span>作成者：{{$value->user->name}}</span>
                     </div>
                     <div class="main_block_create">
                     {{$value->created_at}}
