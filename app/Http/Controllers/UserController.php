@@ -15,17 +15,10 @@ class UserController extends Controller
     }
     public function edit(Request $request)
     {
-        Log::debug($request->file('file'));
-
-        $unique = uniqid().'.jpeg';
-        $user = User::find(Auth::id());
-        if($request->file){
-            $request->file->move(public_path('uploads/'),$unique);       
-            $user->file_path = $unique;
-        }
         
-        $user->name = $request->name;
-        $user->save();
+        $user = new User();
+        $user->edit($request);
+       
 
     }
 }

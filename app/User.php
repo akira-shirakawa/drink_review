@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use auth;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -51,5 +51,17 @@ class User extends Authenticatable
         ->where('id',$request->post_id)->count();      
         $user = !$user ? $this->likes()->attach($request->post_id) : $this->likes()->detach($request->post_id);
         return $user;
+    }
+    public function edit($request)
+    {
+        $unique = uniqid().'.jpeg';
+        $user = User::find(Auth::id());
+        if($request->file){
+            $request->file->move(public_path('uploads/'),$unique);       
+            $user->file_path = $unique;
+        }
+        
+        $user->name = $request->name;
+        $user->save();
     }
 }
