@@ -36,9 +36,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Post $post)
+    public function store(Request $request)
     {
-        
+        $post = new Post();
         $post->storeData($request,$post);
      
     }
@@ -61,8 +61,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,Post $post)
+    public function edit(Request $request)
     {
+
+        $post = new Post();
         $post->edit_post($request); 
     }
 
@@ -104,8 +106,9 @@ class PostController extends Controller
         $user = User::findOrFail($id);
         return view('like',['user'=>$user]);
     }
-    public function search(Request $request,Post $post)
+    public function search(Request $request)
     {
+        $post = new Post();
         $post = $post->search_data($request);
         return $post ? view('search',$post) : back();
     }
