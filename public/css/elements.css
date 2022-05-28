@@ -121,7 +121,7 @@ input[type=submit]{
     height:90px;
     padding:8px;
   }
-  @media(max-width:400px){
+  @media(max-width:900px){
     .main_block_item{
       width:100%;
     }
