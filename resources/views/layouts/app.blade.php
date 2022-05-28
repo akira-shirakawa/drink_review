@@ -77,6 +77,6 @@ faf
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
 <!-- custom js file link -->
-<script src="js/main.js"></script>
+<script src="{{ asset('js/main.js')}}" ></script>
 </body>
 </html>

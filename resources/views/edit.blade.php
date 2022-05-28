@@ -27,7 +27,7 @@
 <p class="label">悪かったところ</p>
 <textarea name="bad" rows="4">{{$post->bad}}</textarea>
 <input type="hidden" name="post_id" value="{{$post->id}}">
-<button id="upload" class="mt-middle button"><i class="fa "></i>変更</button>
+<button id="upload" class="mt-middle button mb-5"><i class="fa "></i>変更</button>
 </div>
 
  

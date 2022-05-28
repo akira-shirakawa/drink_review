@@ -11,7 +11,7 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
-        <div class="hit">
+        <div class="hit mt-2">
         {{count($data)}}件ヒット
         </div>
    

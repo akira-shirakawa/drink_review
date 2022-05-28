@@ -42,7 +42,7 @@
             </div>
             <div class="main_block_content two-items">
                 @foreach($category as $value)               
-                <a class="main_block_item category is-center" href="/search/?q=%23{{$value->name}}">
+                <a class=" category" href="/search/?q=%23{{$value->name}}">
                 {{mb_strlen($value->name) > 15 ? mb_substr($value->name,0,15).'...' : $value->name}}
                 </a>
                 @endforeach
